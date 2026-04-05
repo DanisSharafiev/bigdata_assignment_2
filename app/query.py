@@ -15,6 +15,10 @@ cluster = Cluster(["cassandra-server"])
 s = cluster.connect("search_engine")
 
 row = s.execute("SELECT num_docs, avg_dl FROM collection_stats WHERE id = 1").one()
+if row is None:
+    print("Index is empty. Run index.sh first.")
+    cluster.shutdown()
+    sys.exit(1)
 N = row.num_docs
 avg_dl = row.avg_dl
 

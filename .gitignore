@@ -1,0 +1,20 @@
+*/.venv*/*
+*/.venv*
+*/.venv/
+
+# Packed venv
+app/.venv.tar.gz
+
+# Parquet (too large)
+y.parquet
+
+# Logs
+logs.txt
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Spark
+app/spark-warehouse/

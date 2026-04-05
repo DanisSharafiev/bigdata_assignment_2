@@ -9,8 +9,11 @@ bash start-services.sh
 python3 -m venv .venv
 source .venv/bin/activate
 
+# Upgrade pip and install wheel first
+pip install --upgrade pip wheel
+
 # Install any packages
-pip install -r requirements.txt  
+pip install -r requirements.txt
 
 # Package the virtual env.
 venv-pack -o .venv.tar.gz
@@ -23,4 +26,11 @@ bash prepare_data.sh
 bash index.sh
 
 # Run the ranker
-bash search.sh "this is a query!"
+echo "=== Query 1: history war ==="
+bash search.sh "history war"
+
+echo "=== Query 2: music album ==="
+bash search.sh "music album"
+
+echo "=== Query 3: film director ==="
+bash search.sh "film director"
